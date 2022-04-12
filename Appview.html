@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>App viewer</title>
+        <style>
+            body {
+                text-align:center;
+            }
+        </style>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h2 id = "display"></h2>
+        <hr>
+<h4 id = "app">
+
+</h4>
+<hr>
+<br>
+<br>
+<span>
+    <button class = "btn btn-info" onclick = "b()">Back</button>
+    <button class = "btn btn-info" onclick = "a()">About</button>
+</span>
+<br>
+<br>
+<p id = "about"></p>
+<script>
+    var AppCode = localStorage.getItem("TransferHRscriptAppsCode");
+    var AppName = localStorage.getItem("TransferHRscriptAppsName");
+    document.getElementById("display").innerHTML = AppName + ' - HRscript app viewer';
+    document.getElementById("app").innerHTML = AppCode;
+    function b() {
+        window.location = "Main.html";
+    }
+    function a() {
+        document.getElementById("about").innerHTML = "This is a web viewer. You can view your web apps here. Keep in mind that you can't have script tags here. <br> But you can have Iframe tags which then you can get your own website on Iframe and thats the same thing as JS and CSS and HTML.";
+    }
+</script>
+    </body>
+</html>

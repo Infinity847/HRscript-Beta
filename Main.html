@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>HRscript apps</title>
+        <style>
+            body{
+                text-align:center;
+            }
+            #review {
+                width:400px;
+                height:200px;
+            }
+        </style>
+        <script src="https://kihtrak.com/cloud_variable/cloudify.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head><center>
+    <body><div style = 'background-color:lightblue; border-radius:15px;width:400px;'>
+        <h2>HRscript apps</h2>
+    </div>  </center>   
+        <br>
+        <br>
+        <h2 style = 'color:blue; font-weight:bolder; font-size:25px;'>Create your own app</h2>
+        <br><br>
+        <div style = 'background-color: lightskyblue;'>
+        <!--Create app--><button class = 'btn btn-info' onclick = 'random();'>CHOOSE RANDOM NAME</button>
+App name<input id = "name" type = "text" placeholder = "(name)">
+<br>
+App html code<input id = "code" type = "text" placeholder = "(html code)">
+<br><br>
+<button class = "btn btn-info" onclick = "addApp();">CREATE APP</button>
+</div>
+        <!--Create app-->
+        <br>
+        <br>
+        <h2 style = 'color:blue; font-weight:bolder; font-size:25px;'>UPDATES</h2>
+        <br><div style = 'background-color: lightskyblue;'>
+        <p style = 'color:blue; font-weight:bolder; font-size:25px;'>2022 released</p><br>
+        <p style = 'color:blue; font-weight:bolder; font-size:25px;'>2022 march update added better styling</p>
+        <p style = 'color:blue; font-weight:bolder; font-size:25px;'>2022 march update Random Names</p>
+        <p style = 'color:blue; font-weight:bolder; font-size:25px;'>2022 march night update Saving Apps</p>
+</div>
+        <br><br>
+        <h2  onclick = "view();" style = 'color:blue; font-weight:bolder; font-size:25px;'>#MY APPS</h2>
+        <br>
+        <h4 id = "appView">
+        </h4>
+        <br>
+        <br><section>
+    </section>
+        </section>
+        <script>
+            var names = ['Beautifying masterpiece', 'Charming applets', 'My big masterpiece', 'A pen leading to an app', 'Charming modern app', 'My story', 'Real lucky app', 'Questioning game', 'Donating Well', 'Moonlight donating app'];
+            var ran;
+            var apps = localStorage.getItem('MyHRscriptApps');
+            var appName;
+            var appCode;
+            function viewApp(ID) {
+appCode = document.getElementById(ID).className;
+localStorage.setItem("TransferHRscriptAppsCode", appCode);
+localStorage.setItem("TransferHRscriptAppsName", ID);
+window.location = "Appview.html";
+            }
+            function addApp() {
+                console.log("App created");
+                appName = document.getElementById("name").value;
+                appCode = document.getElementById("code").value;
+                apps = "<h4 id = '" + appName + "' class = '" + appCode + "' onclick =" + '"viewApp('+ "'" + appName + "'" + ')"' + ">" + appName + "</h4>" + apps;
+                localStorage.setItem('MyHRscriptApps', apps);
+view();
+            }
+            function view() {
+                document.getElementById("appView").innerHTML = apps;
+            }
+            function random() {
+                ran = Math.random();
+ran = ran * 10;
+ran = Math.round(ran);
+console.log(ran);
+console.log(names[ran]);
+document.getElementById("name").value = names[ran];
+            }
+            </script>
+     
+    </body>
+</html>
